@@ -20,8 +20,12 @@
         <a href="contact.html">Contact</a>
       </nav>
 
-      <input class="menu-toggle" id="menuToggle3" type="checkbox" />
-      <label for="menuToggle3" class="hamburger"><span></span></label>
+      <input class="menu-toggle" id="menuToggle" type="checkbox" />
+      <label for="menuToggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
 
       <div class="mobile-panel">
         <a href="index.html">Home</a>
@@ -77,6 +81,27 @@
       </div>
     </section>
   </main>
+
+  <!-- Mobile Menu Toggle Script -->
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobilePanel = document.querySelector('.mobile-panel');
+
+    menuToggle.addEventListener('change', () => {
+      if(menuToggle.checked){
+        mobilePanel.style.display = 'block';
+      } else {
+        mobilePanel.style.display = 'none';
+      }
+    });
+
+    document.querySelectorAll('.mobile-panel a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.checked = false;
+        mobilePanel.style.display = 'none';
+      });
+    });
+  </script>
 
 </body>
 </html>
