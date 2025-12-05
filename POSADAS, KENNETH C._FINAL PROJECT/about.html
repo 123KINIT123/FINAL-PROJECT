@@ -80,8 +80,12 @@
         <a href="contact.html">Contact</a>
       </nav>
 
-      <input class="menu-toggle" id="menuToggle2" type="checkbox" />
-      <label for="menuToggle2" class="hamburger"><span></span></label>
+      <input class="menu-toggle" id="menuToggle" type="checkbox" />
+      <label for="menuToggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
 
       <div class="mobile-panel">
         <a href="index.html">Home</a>
@@ -99,19 +103,19 @@
       <div class="container" style="max-width:800px; margin:0 auto;">
         <h1 class="sec-title">About Me</h1>
 
-        <p style="font-size:1.1rem; color:#1e293b; font-weight:500; line-height:1.8; margin-top:1rem;">
+        <p class="about-text">
           I am an IT student focusing on web development, with a passion for designing modern, clean, and functional user interfaces. I have experience building responsive websites and implementing user-friendly layouts using HTML, CSS, and JavaScript.
         </p>
 
-        <h3 style="margin-top:2rem; font-size:1.2rem; color:#0f172a;">Education & Experience</h3>
-        <ul style="line-height:1.8; font-size:1rem; color:#475569; font-weight:500; margin-top:0.8rem; padding-left:1.2rem;">
+        <h3>Education & Experience</h3>
+        <ul>
           <li>IT Student — Universidad de Dagupan</li>
           <li>Experienced in Web Design, Networking, and System Fundamentals</li>
           <li>Hands-on experience in responsive layouts and UI styling</li>
         </ul>
 
-        <h3 style="margin-top:2rem; font-size:1.2rem; color:#0f172a;">Interests</h3>
-        <p style="font-size:1.05rem; color:#475569; font-weight:500; line-height:1.7; margin-top:0.8rem;">
+        <h3>Interests</h3>
+        <p class="about-text">
           Designing interfaces, building responsive websites, improving UI/UX, and learning new technologies related to development.
         </p>
       </div>
@@ -160,6 +164,27 @@
       </div>
     </footer>
   </main>
+
+  <!-- Mobile Menu Toggle Script -->
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobilePanel = document.querySelector('.mobile-panel');
+
+    menuToggle.addEventListener('change', () => {
+      if(menuToggle.checked){
+        mobilePanel.style.display = 'block';
+      } else {
+        mobilePanel.style.display = 'none';
+      }
+    });
+
+    document.querySelectorAll('.mobile-panel a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.checked = false;
+        mobilePanel.style.display = 'none';
+      });
+    });
+  </script>
 
 </body>
 </html>
